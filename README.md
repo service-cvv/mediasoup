@@ -10,6 +10,7 @@
 [![][codeql-shield-mediasoup]][codeql-mediasoup]
 [![][opencollective-shield-mediasoup]][opencollective-mediasoup]
 
+This fork use github action to prebuilt worker the executable binary
 
 ## Website and Documentation
 
