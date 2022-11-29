@@ -1,6 +1,6 @@
 name: mediasoup-worker
 
-on: [pull_request, workflow_dispatch ]
+on: [ workflow_dispatch ]
 
 jobs:
   ci:
@@ -19,7 +19,7 @@ jobs:
           - os: windows-2022
             cc: cl
             cxx: cl
-            osarch: macos-amd64
+            osarch: windows-amd64
         # A single Node.js version should be fine for C++.
         node:
           - 16
@@ -52,8 +52,9 @@ jobs:
             ${{ matrix.build.os }}-node-${{matrix.build.cc}}-
 
       - run: npm run worker:build
+
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v3
         with:
           name: worker-${{ matrix.build.osarch }}
-          path: worker/out/Release/
+          path: worker/out/Release/*
